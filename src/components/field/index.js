@@ -450,12 +450,7 @@ export default class TextField extends PureComponent {
 
     let helperContainerStyle = {
       flexDirection: 'row',
-      height: (title || limit)?
-        titleFontSize * 2:
-        focus.interpolate({
-          inputRange:  [-1, 0, 1],
-          outputRange: [titleFontSize * 2, 8, 8],
-        }),
+      height: 8,
     };
 
     let containerProps = {
@@ -538,11 +533,6 @@ export default class TextField extends PureComponent {
         </Animated.View>
 
         <Animated.View style={helperContainerStyle}>
-          <View style={styles.flex}>
-            <Helper style={[errorStyle, titleTextStyle]}>{error}</Helper>
-            <Helper style={[titleStyle, titleTextStyle]}>{title}</Helper>
-          </View>
-
           <Counter {...counterProps} />
         </Animated.View>
       </View>
