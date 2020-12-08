@@ -24,8 +24,6 @@ export default class Affix extends PureComponent {
     baseColor: PropTypes.string.isRequired,
     animationDuration: PropTypes.number.isRequired,
 
-    // style: Animated.Text.propTypes.style,
-
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
@@ -51,6 +49,7 @@ export default class Affix extends PureComponent {
         .timing(opacity, {
           toValue: (props.active || props.focused)? 1 : 0,
           duration: animationDuration,
+          useNativeDriver: false
         })
         .start();
     }
